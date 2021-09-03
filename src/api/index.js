@@ -6,6 +6,7 @@
 import jsonp from 'jsonp'
 import {message} from 'antd'
 import ajax from './ajax'
+import axios from "axios"
 // const BASE = 'http://120.55.193.14:5000'
 const BASE = 'http://39.100.225.255:5000' //账号：admin 密码：admin
 
@@ -48,6 +49,12 @@ export const reqUsers = () => ajax(BASE + '/manage/user/list')
 export const reqDeleteUser = (userId) => ajax(BASE + '/manage/user/delete', {userId},"POST")
 //添加/修改用户
 export const reqAddOrUpdateUser = (user) => ajax(BASE + '/manage/user/'+(user._id ? 'update' : 'add'),user,"POST")
+//柱状图
+export const reqBar = () => ajax("/bar")//接口地址与拦截地址要一致
+//饼图
+export const reqPie = () => ajax("/pie")
+//折线图
+export const reqLine = () => ajax("/line")
 
 /*
 * 搜索商品分页列表(根据商品名称/商品描述)
@@ -79,8 +86,9 @@ export const reqWeather = (city) => {
       }
     })
   })
-
 }
+
+
 
 // reqWeather('440100') //高德地图提供的广州序号
 

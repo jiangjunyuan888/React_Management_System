@@ -1,5 +1,5 @@
 import React,{ Component } from "react"
-import {HashRouter, Route, Switch} from "react-router-dom"
+import {BrowserRouter, Route, Switch} from "react-router-dom"
 import './App.less';
 
 import Login from "./pages/login/login"
@@ -12,13 +12,13 @@ export default class App extends Component{
 
   render(){
     return(
-        <HashRouter>
+        <BrowserRouter>
           {/*配置路由*/}
           <Switch>{/*只匹配其中一个*/}
             <Route path='/login' component={Login} />
             <Route path='/' component={Admin} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
     )
   }
 }
